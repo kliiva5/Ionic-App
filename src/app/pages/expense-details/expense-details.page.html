@@ -1,9 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>expenseDetails</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Expense Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list lines="full">
+    <ion-item>
+      <ion-select placeHolder="Expnse type" required [(ngModel)]="expense.type" multiple="false" cancelText="Cancel" okText="Confirm">
+        <ion-select-option value="Food">Food</ion-select-option>
+        <ion-select-option value="Games">Games</ion-select-option>
+        <ion-select-option value="Sports">Sports</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Amount spent" required [(ngModel)]="expense.amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-datetime placeholder="Date" display-format="DD/MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="expense.dateCreated"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="saveExpenseDetails()">Save</ion-button>
 </ion-content>

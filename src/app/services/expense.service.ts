@@ -33,7 +33,7 @@ export class ExpenseService {
   }
 
   getExpense(id: string) {
-    return this.expenseCollection.doc(id).valueChanges();
+    return this.expenseCollection.doc<Expense>(id).valueChanges();
   }
 
   updateExpense(expense: Expense, id: string) {

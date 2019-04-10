@@ -47,8 +47,4 @@ export class ExpenseService {
   deleteExpense(id: string) {
     return this.expenseCollection.doc(id).delete();
   }
-
-  calculateTotalCost() {
-    // TODO: Calculate the sum of expenses
-  }
 }

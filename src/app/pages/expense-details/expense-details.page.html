@@ -10,17 +10,21 @@
 <ion-content>
   <ion-list lines="full">
     <ion-item>
-      <ion-select placeHolder="Expnse type" required [(ngModel)]="expense.type" multiple="false" cancelText="Cancel" okText="Confirm">
+      <ion-label>Expense Type</ion-label>
+      <ion-select required [(ngModel)]="expense.type" multiple="false" cancelText="Cancel" okText="Confirm">
         <ion-select-option value="Food">Food</ion-select-option>
         <ion-select-option value="Games">Games</ion-select-option>
         <ion-select-option value="Sports">Sports</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Amount spent" required [(ngModel)]="expense.amount"></ion-input>
+      <ion-label>Amount</ion-label>
+      <ion-input style="text-align: right;" type="number" required [(ngModel)]="expense.amount"></ion-input>
+      <ion-icon name="logo-euro"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-datetime placeholder="Date" display-format="DD/MM/YYYY" picker-format="MMMM YYYY" [(ngModel)]="expense.dateCreated"></ion-datetime>
+      <ion-label>Date Spent</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY" picker-format="DD/MMMM/YYYY" [(ngModel)]="expense.dateCreated"></ion-datetime>
     </ion-item>
   </ion-list>
   <ion-button expand="full" (click)="saveExpenseDetails()">Save</ion-button>

@@ -32,5 +32,9 @@ export class HomePage {
     return totalCost;
   }
 
-
+  removeExpense(expense: any) {
+    this.expenseService.deleteExpense(expense.docId).then(() => {
+      this.totalCost = this.calculateTotalCost();
+    });
+  }
 }

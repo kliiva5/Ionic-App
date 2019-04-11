@@ -7,22 +7,36 @@
 </ion-header>
 
 <ion-content>
+  <h1 style="text-align: center; text-decoration: underline">Your Expenses</h1>
   <ion-list>
     <ion-item-sliding *ngFor="let expense of expenses">
       <ion-item lines="inset" button routerLink="/details/{{ expense.docId }}">
         <ion-label>
-          {{ expense.type }} - {{ expense.amount }}
+          <p>
+            <strong>{{ expense.type }} - {{ expense.amount }} <ion-icon name="logo-euro"></ion-icon></strong>
+          </p>
         </ion-label>
       </ion-item>
-    </ion-item-sliding>
 
-    <ion-item-options slide="end">
-      <ion-item-option (click)="remove(expense)" color="secondary">
-        Remove
-        <ion-icon name="checkmark" slot="end"></ion-icon>
-      </ion-item-option>
-    </ion-item-options>
+      <ion-item-options side="end">
+        <ion-item-option (click)="removeExpense(expense)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
-  <p style="margin: 0 auto;">You have spent: {{ totalCost }}</p>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" routerLink="/details">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>
+      <p style="text-align: center">You have spent: {{ totalCost }} <ion-icon name="logo-euro"></ion-icon></p>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

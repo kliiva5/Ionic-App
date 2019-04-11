@@ -9,7 +9,7 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let expense of expenses">
-      <ion-item lines="inset" button [routerLink]="['/details', expense.id]">
+      <ion-item lines="inset" button routerLink="/details/{{ expense.docId }}">
         <ion-label>
           {{ expense.type }} - {{ expense.amount }}
         </ion-label>
@@ -23,4 +23,6 @@
       </ion-item-option>
     </ion-item-options>
   </ion-list>
+
+  <p style="margin: 0 auto;">You have spent: {{ totalCost }}</p>
 </ion-content>

@@ -11,7 +11,12 @@ import { LoadingController, NavController } from '@ionic/angular';
 })
 export class ExpenseDetailsPage implements OnInit {
 
-  expense: Expense;
+  expense: Expense = {
+    type: '',
+    amount: 0,
+    dateCreated: ""
+  };
+
   expenseId: string;
 
   constructor(private expenseService: ExpenseService, 
